@@ -35,6 +35,10 @@ public class FTP {
 		this.port = port;
 	}
 	
+	boolean connect(String host, String user, String pass, int port) {
+		return false;
+	}
+	
 	/**
 	 * Prints a header for the program.
 	 */
