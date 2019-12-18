@@ -10,15 +10,14 @@ public class FTP {
 	
 	private String password;
 	
-	private int port;
+	private int port = 22;
 	
 	private Session session;
 	
-	public FTP(String user, String host, String password, int port) {
+	public FTP(String user, String host, String password) {
 		this.user = user;
 		this.host = host;
 		this.password = password;
-		this.port = port;
 	}
 	
 	public void connect() throws JSchException {
@@ -38,7 +37,7 @@ public class FTP {
     }
 	
 	public static void printHeader() {
-		System.out.println("FTP Client\nVersion: 0.1\nAuthor: Hayes Derbyshire\nUsage: Enter hostname, user, password, and port (22 for SFTP).\n");
+		System.out.println("SFTP Client\nVersion: 0.1\nAuthor: Hayes Derbyshire\n");
 	}
 	
 	public static void main(String[] args) throws JSchException {
@@ -63,12 +62,9 @@ public class FTP {
 		
 		pass = new String(pwd);
 		
-		System.out.print("Port: ");
-		port = input.nextInt();
-		
 		input.close();
 		
-		FTP ftp = new FTP(user, host, pass, port);
+		FTP ftp = new FTP(user, host, pass);
 		
 		ftp.connect();
 	}
