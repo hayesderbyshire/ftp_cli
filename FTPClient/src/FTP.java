@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.Console;
+import com.jcraft.jsch.*;
 
 /**
  * Simple FTP Client.
@@ -21,6 +22,8 @@ public class FTP {
 	
 	private int port;
 	
+	private Session session = null;
+	
 	/**
 	 * Constructor for an instance of FTP;
 	 * @param hostId
@@ -35,9 +38,21 @@ public class FTP {
 		this.port = port;
 	}
 	
-	boolean connect(String host, String user, String pass, int port) {
-		return false;
-	}
+	public void connect() throws JSchException {
+        JSch jsch = new JSch();
+
+        // Uncomment the line below if the FTP server requires certificate
+        // jsch.addIdentity("private-key-path);
+
+        //session = jsch.getSession(server);
+
+        // Comment the line above and uncomment the two lines below if the FTP server requires password
+        session = jsch.getSession(userId, hostId, port);
+        session.setPassword(pass);
+
+        session.setConfig("StrictHostKeyChecking", "no");
+        session.connect();
+    }
 	
 	/**
 	 * Prints a header for the program.
@@ -50,8 +65,9 @@ public class FTP {
 	 * Starting point of the program.
 	 * 
 	 * @param args Command line arguments
+	 * @throws JSchException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws JSchException {
 		
 		String host, user, pass;
 		int port;
@@ -78,6 +94,7 @@ public class FTP {
 		
 		FTP ftp = new FTP(host, user, pass, port);
 		
+		ftp.connect();
 	}
 	
 }
