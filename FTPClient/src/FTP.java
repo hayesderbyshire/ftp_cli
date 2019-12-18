@@ -38,30 +38,32 @@ public class FTP {
     }
 	
 	public static void printHeader() {
-		System.out.println("FTP Client\nVersion: 0.1\nAuthor: Hayes Derbyshire\nUsage: Enter hostname, user, password, and port (22 for SFTP).");
+		System.out.println("FTP Client\nVersion: 0.1\nAuthor: Hayes Derbyshire\nUsage: Enter hostname, user, password, and port (22 for SFTP).\n");
 	}
 	
 	public static void main(String[] args) throws JSchException {
 		String user, host, pass;
 		int port;
 		
+		Console con = null;
+		
 		printHeader();
 		
 		Scanner input = new Scanner(System.in);
 		
-		System.out.println("Host: ");
+		System.out.print("Host: ");
 		host = input.next();
 		
-		System.out.println("Username: ");
+		System.out.print("Username: ");
 		user = input.next();
 		
-		System.out.println("Password: ");
-		Console con = System.console();
+		System.out.print("Password: ");
+		con = System.console();
 		char[] pwd = con.readPassword();
 		
 		pass = new String(pwd);
 		
-		System.out.println("Port: ");
+		System.out.print("Port: ");
 		port = input.nextInt();
 		
 		input.close();
