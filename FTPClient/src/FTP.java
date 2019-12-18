@@ -1,6 +1,8 @@
 import java.io.Console;
 import java.util.*;
-import com.jcraft.jsch.*;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.Session;
 
 public class FTP {
 	
