@@ -3,6 +3,7 @@
 Simple SFTP command-line interface that allows user to transfer files between local machine and remote server.
 
 Version: 0.1
+
 Author: Hayes Derbyshire
 
 Once logged in, the command line will prompt for a set of actions:
