@@ -10,8 +10,10 @@ Once logged in, the command line will prompt for a set of actions:
 
 Upload:
 - u 'src' 'dest'
+
 Download:
 - d 'src' 'dest'
+
 Quit:
 - q
 
